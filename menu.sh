@@ -63,7 +63,7 @@ do
             ;;
 	"Buat User SSH/OVPN Trial")
 	clear
-	trial
+	trial | lolcat
 	break
 	;;
 	"Perbarui User")
@@ -88,7 +88,7 @@ do
 	;;
 	"Monitor User Login")
 	clear
-	userlog
+	userlog | lolcat
 	break
     ;;
 	"Bersihkan Cache Ram Manual")
