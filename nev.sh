@@ -17,7 +17,7 @@ if ! grep -w -q $passwds /usr/bin/pass; then
 clear
 echo " Maaf, PASSWORD salah silahkan hubungi admin"
 rm /usr/bin/pass
-rm nev.sh
+rm /home/centos/nev.sh
 
 exit
 fi
@@ -50,7 +50,7 @@ if ! grep -w -q $MYIP3 IP; then
 	echo "        Hubungi: editor ( excode72 )"
 	
 	rm /root/IP
-	rm nev.sh
+	rm /home/centos/nev.sh
 	rm -f /root/IP
 	exit
 fi
