@@ -4,7 +4,7 @@
 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 
-echo "Checking User Login";
+echo "List User yang sedang Login";
 echo "=================================";
 
 for PID in "${data[@]}"
@@ -33,4 +33,4 @@ do
         fi
 done
 echo "-------------------------------"
-echo -e "Script by \e[1;33;44m Fawzya.Net \e[0m"
+echo -e "Script by ExCode72"
