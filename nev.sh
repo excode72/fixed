@@ -317,7 +317,6 @@ echo "speedtest.py --share" | tee speedtest
 chmod +x menu
 chmod +x bannermenu
 chmod +x rebootvps
-chmod +x editbanner
 chmod +x userlog
 chmod +x usernew
 chmod +x userlist
@@ -342,22 +341,6 @@ echo "0 0 * * * root /usr/bin/reboot" > /etc/cron.d/reboot
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-
-# swap ram
-dd if=/dev/zero of=/swapfile bs=1024 count=1024k
-# buat swap
-mkswap /swapfile
-# jalan swapfile
-swapon /swapfile
-#auto star saat reboot
-wget https://raw.githubusercontent.com/excode72/fixed/centos8/fstab
-mv ./fstab /etc/fstab
-chmod 644 /etc/fstab
-sysctl vm.swappiness=10
-#permission swapfile
-chown root:root /swapfile 
-chmod 0600 /swapfile
-cd
 
 # finalisasi
 chown -R nginx:nginx /home/vps/public_html
