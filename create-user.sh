@@ -7,18 +7,21 @@ read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
 
-IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+IP=`wget -qO- ipv4.icanhazip.com`
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 echo -e ""
-echo -e "Informasi SSH"
-echo -e "=========-account-=========="
-echo -e "Host: $IP" 
-echo -e "Port: 443,143,80"
-echo -e "Username: $Login "
-echo -e "Password: $Pass"
-echo -e "-----------------------------"
-echo -e "Aktif Sampai: $exp"
-echo -e "==========================="
-echo -e "Script by \e[1;33;44mFawzya.Net\e[0m"
+echo -e "Akun anda sudah berhasil dibuat...." | lolcat
+echo -e "Informasi SSH" | lolcat
+echo -e "=========-account-==========" | lolcat
+echo -e "Host: $IP"  | lolcat
+echo -e "Port: 443,143,80" | lolcat
+echo -e "Squid Port: 8080" | lolcat
+echo -e "Username: $Login " | lolcat
+echo -e "Password: $Pass" | lolcat
+echo -e "-----------------------------" | lolcat
+echo -e "Aktif Sampai: $exp" | lolcat
+echo -e "===========================" | lolcat
+echo -e "Semoga akunnya Bermanfaat" | lolcat
+echo -e "Script by ExCode72" | lolcat
