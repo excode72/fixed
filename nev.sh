@@ -143,6 +143,11 @@ cd
 rm -rf /root/.bashrc
 wget -O /root/.bashrc https://raw.githubusercontent.com/excode72/fixed/centos8/.bashrc
 
+# duplicate bash profile
+cd
+rm -rf /root/.bash_profile
+wget -O /root/.bash_profile https://raw.githubusercontent.com/excode72/fixed/centos8/.bash_profile
+
 
 # install webserver
 cd
