@@ -53,7 +53,7 @@ echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
 options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
-select opt in "${options[@]}" | lolcat
+select opt in "${options[@]}"
 do
     case $opt in
         "Buat User SSH/OVPN")
