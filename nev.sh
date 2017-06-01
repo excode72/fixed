@@ -313,7 +313,7 @@ wget -O userlist "https://raw.githubusercontent.com/excode72/fixed/centos8/dafta
 wget -O trial "https://raw.githubusercontent.com/excode72/fixed/centos8/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/excode72/fixed/centos8/hapus.sh"
 wget -O userpass "https://transfer.sh/138NMQ/userpass.sh"
-wget -O userrenew "https://raw.githubusercontent.com/khairilg/script-jualan-ssh-vpn/master/user-renew.sh"
+wget -O userrenew "https://raw.githubusercontent.com/excode72/fixed/centos8/user-renew.sh"
 echo "wget freevps.us/downloads/bench.sh -O - -o /dev/null|bash " | tee -a benchmark
 echo "userexpire && cat /root/expireduser.txt" | tee -a kadaluarsa
 echo "cat root/log-install.txt" | tee tutorial
@@ -336,22 +336,6 @@ chmod +x userrenew
 chmod +x benchmark
 chmod +x kadaluarsa
 
-cd
-
-# swap ram
-dd if=/dev/zero of=/swapfile bs=1024 count=1024k
-# buat swap
-mkswap /swapfile
-# jalan swapfile
-swapon /swapfile
-#auto star saat reboot
-wget https://raw.githubusercontent.com/excode72/fixed/centos8/fstab
-mv ./fstab /etc/fstab
-chmod 644 /etc/fstab
-sysctl vm.swappiness=10
-#permission swapfile
-chown root:root /swapfile 
-chmod 0600 /swapfile
 cd
 
 # cron
