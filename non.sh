@@ -55,6 +55,12 @@ if ! grep -w -q $MYIP3 IP; then
 	exit
 fi
 
+# Set Hostname
+clear
+echo "Isi Hostname Sesuai keinginan anda contoh: NevadaRouter"
+read -p "Isi Hostname: " hostname1
+hostnamectl set-hostname $hostname1
+
 # disable se linux
 echo 0 > /selinux/enforce
 sed -i 's/SELINUX=enforcing/SELINUX=disable/g'  /etc/sysconfig/selinux
