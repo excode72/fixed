@@ -146,6 +146,8 @@ do
 	echo "--------------------------------------------------------" | lolcat
 	echo -e "1. Simpan text (CTRL + X, lalu ketik Y dan tekan ENTER)" | lolcat
 	echo -e "2. Membatalkan edit text (CTRL + X,lalu ketik N dan tekan ENTER)" | lolcat
+	echo -e ""
+	echo -e " WARN!: HARAP MERESTART OPENSSH DAN DROPBEAR SETELAH MENGEDIT " | lolcat
 	echo "--------------------------------------------------------" | lolcat
 	read -p "Tekan ENTER untuk melanjutkan..................." | lolcat
 	nano /etc/bannerssh
