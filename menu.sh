@@ -53,16 +53,16 @@ echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
 echo ""
-options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User" "SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
+options=("Buat User SSH" "Buat User SSH Trial" "Perbarui User" "Ganti Password User" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
 select opt in "${options[@]}"
 do
     case $opt in
-        "Buat User SSH/OVPN")
+        "Buat User SSH")
 	clear
         usernew
         break
             ;;
-	"Buat User SSH/OVPN Trial")
+	"Buat User SSH Trial")
 	clear
 	trial | lolcat
 	break
@@ -72,7 +72,7 @@ do
 	userrenew
 	break
 	;;
-	"Ganti Password User SSH/OVPN")
+	"Ganti Password User SSH")
 	clear
 	userpass | lolcat
 	echo -e "Sukses Mengganti Password user...............!" | lolcat
@@ -90,9 +90,9 @@ do
 	;;
 	"Ganti Password VPS")
 	clear
-	echo "=================================================================" | lolcat
-	echo -e " Password saat kita ketik memang tidak terlihat " | lolcat
-	echo "=================================================================" | lolcat
+	echo "==================================================" | lolcat
+	echo -e " Password saat diketik memang tidak terlihat " | lolcat
+	echo "==================================================" | lolcat
 	read -p "Tekan ENTER untuk melanjutkan ke pengisian password..............!" | lolcat
 	passwd root
 	break
@@ -101,7 +101,7 @@ do
 	clear
 	read -p "Isi Hostname: " hostname1
 	hostnamectl set-hostname $hostname1
-	echo -e "Hostname sudah diganti, silahkan login kembali" | boxes -d bot | lolcat
+	echo -e "Hostname sudah diganti, silahkan login kembali" | boxes -d boy | lolcat
 	exit
 	break
 	;;
