@@ -242,7 +242,7 @@ chkconfig sshd on
 
 # install dropbear
 yum -y install dropbear
-echo "OPTIONS="-b /etc/bannerssh -p 109 -p 110 -p 443"" > /etc/sysconfig/dropbear
+echo "OPTIONS='"-b /etc/bannerssh -p 109 -p 110 -p 443"'" > /etc/sysconfig/dropbear
 echo "/bin/false" >> /etc/shells
 service dropbear restart
 chkconfig dropbear on
@@ -365,14 +365,14 @@ echo "===============================================" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Layanan yang diaktifkan"  | tee -a log-install.txt
 echo "--------------------------------------"  | tee -a log-install.txt
-echo "OpenVPN : TCP 1194 (client config : http://$MYIP/1194-client.ovpn)"  | tee -a log-install.txt
+echo "OpenVPN : TCP 1194 (client config : http://$MYIP3/1194-client.ovpn)"  | tee -a log-install.txt
 echo "Port OS : 22, 143"  | tee -a log-install.txt
 echo "Port Dropbear : 109, 110, 443"  | tee -a log-install.txt
 echo "SquidProxy    : 8080 (limit to IP SSH)"  | tee -a log-install.txt
 echo "badvpn   : badvpn-udpgw port 7300"  | tee -a log-install.txt
-echo "Webmin   : http://$MYIP:10000/"  | tee -a log-install.txt
-echo "vnstat   : http://$MYIP/vnstat/"  | tee -a log-install.txt
-echo "MRTG     : http://$MYIP/mrtg/"  | tee -a log-install.txt
+echo "Webmin   : http://$MYIP3:10000/"  | tee -a log-install.txt
+echo "vnstat   : http://$MYIP3/vnstat/"  | tee -a log-install.txt
+echo "MRTG     : http://$MYIP3/mrtg/"  | tee -a log-install.txt
 echo "Timezone : Asia/Jakarta"  | tee -a log-install.txt
 echo "Fail2Ban : [on]"  | tee -a log-install.txt
 echo "IPv6     : [off]"  | tee -a log-install.txt
