@@ -2,8 +2,6 @@
 
 # initialisasi var
 OS=`uname -p`;
-MYIP=`wget -qO- http://ipecho.net/plain`;
-MYIP2="s/xxxxxxxxx/$MYIP/g";
 MYIP3=`wget -qO- ipv4.icanhazip.com`;
 
 # go to root
@@ -165,7 +163,11 @@ chmod -R +rx /home/vps
 service php-fpm restart
 service nginx restart
 
- install openvpn
+# Get your Public VPS IP
+MYIP=`dig +short myip.opendns.com @resolver1.opendns.com`;
+MYIP2="s/xxxxxxxxx/$MYIP/g";
+
+#install openvpn
 wget -O /etc/openvpn/openvpn.tar "http://script.fawzya.net/centos/conf/openvpn-debian.tar"
 cd /etc/openvpn/
 tar xf openvpn.tar
@@ -185,7 +187,7 @@ service openvpn restart
 chkconfig openvpn on
 cd
 
- configure openvpn client config
+#configure openvpn client config
 cd /etc/openvpn/
 wget -O /etc/openvpn/1194-client.ovpn "http://script.fawzya.net/centos/open-vpn.conf"
 sed -i $MYIP2 /etc/openvpn/1194-client.ovpn;
