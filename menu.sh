@@ -53,7 +53,7 @@ echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
 echo ""
-options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
+options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User" "SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
 select opt in "${options[@]}"
 do
     case $opt in
@@ -95,6 +95,14 @@ do
 	echo "=================================================================" | lolcat
 	read -p "Tekan ENTER untuk melanjutkan ke pengisian password..............!" | lolcat
 	passwd root
+	break
+	;;
+	"Ganti Hostname")
+	clear
+	read -p "Isi Hostname: " hostname1
+	hostnamectl set-hostname $hostname1
+	echo -e "Hostname sudah diganti, silahkan login kembali" | boxes -d bot | lolcat
+	exit
 	break
 	;;
 	"Monitor User Login")
