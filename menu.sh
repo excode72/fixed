@@ -195,10 +195,11 @@ break
 	cd
 	wget -O menu https://raw.githubusercontent.com/excode72/fixed/centos8/menu.sh
 	mv menu /usr/bin
-	chmod +x menu
 	wget https://raw.githubusercontent.com/excode72/fixed/centos8/update.sh
 	clear
 	sh update.sh
+	rm update.sh
+	chmod +x /usr/bin/menu
 	break
 ;;
 	"Quit")
