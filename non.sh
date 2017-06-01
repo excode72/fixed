@@ -57,9 +57,6 @@ fi
 
 # Set Hostname
 clear
-echo "Isi Hostname Sesuai keinginan anda contoh: NevadaRouter"
-read -p "Isi Hostname: " hostname1
-hostnamectl set-hostname $hostname1
 
 # disable se linux
 echo 0 > /selinux/enforce
@@ -74,8 +71,8 @@ echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.d/rc.local
 
-# install wget and curl
-yum -y install wget curl
+# install wget, curl dan nano
+yum -y install wget curl nano
 
 
 # setting repo
