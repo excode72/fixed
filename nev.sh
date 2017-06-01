@@ -3,7 +3,9 @@
 # initialisasi var
 OS=`uname -p`;
 MYIP3=`wget -qO- ipv4.icanhazip.com`;
-MYIP32="s/xxxxxxxxx/$MYIP3/g";
+# Get your Public VPS IP
+MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '127.0.0.2'`;
+MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # go to root
 cd
@@ -165,10 +167,6 @@ chmod -R +rx /home/vps
 service php-fpm restart
 service nginx restart
 
-# Get your Public VPS IP
-MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '127.0.0.2'`;
-MYIP2="s/xxxxxxxxx/$MYIP/g";
-
 #install openvpn
 wget -O /etc/openvpn/openvpn.tar "http://script.fawzya.net/centos/conf/openvpn-debian.tar"
 cd /etc/openvpn/
@@ -236,7 +234,7 @@ cd
 # setting port ssh
 sed -i '/Port 22/a Port 143' /etc/ssh/sshd_config
 sed -i 's/#Port 22/Port  22/g' /etc/ssh/sshd_config
-sed -i '$ i\Banner bannerssh' /etc/ssh/sshd_config
+sed -i '$ i\Banner /etc/bannerssh' /etc/ssh/sshd_config
 service sshd restart
 chkconfig sshd on
 
@@ -246,13 +244,6 @@ echo "OPTIONS=\"-b /etc/bannerssh -p 109 -p 110 -p 443\"" > /etc/sysconfig/dropb
 echo "/bin/false" >> /etc/shells
 service dropbear restart
 chkconfig dropbear on
-
-# bannerssh
-wget https://raw.githubusercontent.com/excode72/fixed/centos8/bannerssh
-mv ./bannerssh /bannerssh
-chmod 0644 /bannerssh
-service dropbear restart
-service sshd restart
 
 # install vnstat gui
 cd /home/vps/public_html/
@@ -277,7 +268,7 @@ yum -y install squid
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/khairilg/script-jualan-ssh-vpn/master/conf/squid-centos.conf"
 service squid restart
 service squid stop
-sed -i $MYIP32 /etc/squid/squid.conf;
+sed -i $MYIP2 /etc/squid/squid.conf;
 chkconfig squid on
 
 # Install Webmin
@@ -327,6 +318,7 @@ chmod +x userlog
 chmod +x usernew
 chmod +x userlist
 chmod +x userexpire
+chmod +x /etc/bannerssh
 chmod +x trial
 chmod +x hapus
 chmod +x tutorial
@@ -394,6 +386,8 @@ echo "----------"  | tee -a log-install.txt
 
 echo ""  | tee -a log-install.txt
 echo "==============================================="  | tee -a log-install.txt
+echo ""
+echo -e " VPS anda akan Reboot....... " | lolcat
 
 rm /home/centos/nev.sh
 reboot
