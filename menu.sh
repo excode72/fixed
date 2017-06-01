@@ -74,7 +74,8 @@ do
 	;;
 	"Ganti Password User SSH/OVPN")
 	clear
-	userpass
+	userpass | lolcat
+	echo -e "Sukses Mengganti Password user...............!" | lolcat
 	break
 	;;
 	"List User Dan Tanggal Kadaluarsa")
