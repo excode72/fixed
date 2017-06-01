@@ -398,5 +398,5 @@ echo ""
 echo -e " VPS anda akan Reboot....... " | lolcat
 echo ""
 
-rm kvm-install.sh
+rm /home/centos/non.sh
 reboot
