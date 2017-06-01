@@ -22,6 +22,7 @@ fi
 # check registered ip
 wget -q -O IP https://raw.githubusercontent.com/excode72/fixed/centos8/IP.txt
 if ! grep -w -q $MYIP3 IP; then
+	echo ""
 	echo "Maaf, hanya IP yang terdaftar yang bisa menggunakan script ini!"
         echo "     
                        
@@ -336,6 +337,23 @@ chmod +x benchmark
 chmod +x kadaluarsa
 
 cd
+
+# swap ram
+dd if=/dev/zero of=/swapfile bs=1024 count=1024k
+# buat swap
+mkswap /swapfile
+# jalan swapfile
+swapon /swapfile
+#auto star saat reboot
+wget https://raw.githubusercontent.com/excode72/fixed/centos8/fstab
+mv ./fstab /etc/fstab
+chmod 644 /etc/fstab
+sysctl vm.swappiness=10
+#permission swapfile
+chown root:root /swapfile 
+chmod 0600 /swapfile
+cd
+
 # cron
 service crond start
 chkconfig crond on
