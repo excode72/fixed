@@ -273,7 +273,7 @@ yum -y install squid
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/excode72/fixed/centos8/squid-centos.conf"
 service squid restart
 service squid stop
-sed -i 's/$MYIP3/49.213.21.211/' /etc/squid/squid.conf
+sed -i 's/49.213.21.211/$MYIP3/g' /etc/squid/squid.conf
 chkconfig squid on
 
 # Install Webmin
