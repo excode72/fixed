@@ -3,6 +3,7 @@
 # initialisasi var
 OS=`uname -p`;
 MYIP3=`wget -qO- ipv4.icanhazip.com`;
+MYIP32="s/xxxxxxxxx/$MYIP3/g";
 
 # go to root
 cd
@@ -165,7 +166,7 @@ service php-fpm restart
 service nginx restart
 
 # Get your Public VPS IP
-MYIP=`dig +short myip.opendns.com @resolver1.opendns.com`;
+MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v '127.0.0.2'`;
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 #install openvpn
@@ -276,7 +277,7 @@ yum -y install squid
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/khairilg/script-jualan-ssh-vpn/master/conf/squid-centos.conf"
 service squid restart
 service squid stop
-sed -i $MYIP2 /etc/squid/squid.conf;
+sed -i $MYIP32 /etc/squid/squid.conf;
 chkconfig squid on
 
 # Install Webmin
