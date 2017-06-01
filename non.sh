@@ -270,10 +270,10 @@ chkconfig fail2ban on
 
 # install squid
 yum -y install squid
-wget -O /etc/squid/squid.conf "http://script.fawzya.net/centos/conf/squid-centos.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/excode72/fixed/centos8/squid-centos.conf"
+sed`s/$MYIP3/49.213.21.211/` /etc/squid/squid.conf
 service squid restart
 service squid stop
-sed -i $MYIP2 /etc/squid/squid.conf;
 chkconfig squid on
 
 # Install Webmin
