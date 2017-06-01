@@ -53,7 +53,7 @@ echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
 echo ""
-options=("Buat User SSH" "Buat User SSH Trial" "Perbarui User" "Ganti Password User" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
+options=("Buat User SSH" "Buat User SSH Trial" "Perbarui User" "Ganti Password User" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "File Uploader (NEW!)" "Update Script....!" "Quit") 
 select opt in "${options[@]}"
 do
     case $opt in
@@ -90,11 +90,12 @@ do
 	;;
 	"Ganti Password VPS")
 	clear
-	echo "==================================================" | lolcat
+	echo "=====================================================================" | lolcat
 	echo -e " Password saat diketik memang tidak terlihat " | lolcat
-	echo "==================================================" | lolcat
+	echo "=====================================================================" | lolcat
 	read -p "Tekan ENTER untuk melanjutkan ke pengisian password..............!" | lolcat
 	passwd root
+	echo -e "Selamat Password VPS anda sudah di ganti....." | boxes -d cat | lolcat
 	break
 	;;
 	"Ganti Hostname")
@@ -183,7 +184,36 @@ do
 	 echo "OpenSSH sudah di restart boss!!!" | boxes -d boy | lolcat
 	 break
 	 ;;
-	 
+	 "File Uploader (NEW!)")
+	 clear
+	 echo -e "Welcome To File uploader" | lolcat
+echo -e "Script by ExCode72, Powered by Transfer.sh" | lolcat
+echo ""
+echo ""
+echo "===============================================================" | lolcat
+echo =e "1.Isikan File Path dengan lokasi file anda. Contoh: /home/babi.sh" | lolcat
+echo -e "   2.Isikan Nama File sesuai nama file anda. Contoh: babi.sh | lolcat
+echo "===============================================================" | lolcat
+
+read -p "File Path: " path1
+read -p "Nama File: " nama1
+echo -e "Berikut Link URL anda :"
+curl --upload-file $path1 https://transfer.sh/$nama1
+echo ""
+echo -e "Your File Has been Successfully Uploaded" | lolcat
+
+break
+;;
+
+	"Update Script....!")
+	clear
+	cd
+	wget -O menu https://raw.githubusercontent.com/excode72/fixed/centos8/menu.sh
+	mv menu /usr/bin
+	wget https://raw.githubusercontent.com/excode72/fixed/centos8/update.sh
+	sh update.sh
+	break
+;;
 	"Quit")
 	
 	break
