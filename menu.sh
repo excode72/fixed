@@ -52,7 +52,8 @@ echo ""
 echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
-options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
+echo ""
+options=("Buat User SSH/OVPN" "Buat User SSH/OVPN Trial" "Perbarui User" "Ganti Password User SSH/OVPN" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "Quit") 
 select opt in "${options[@]}"
 do
     case $opt in
@@ -84,6 +85,15 @@ do
 	"Hapus User")
 	clear
 	hapus
+	break
+	;;
+	"Ganti Password VPS")
+	clear
+	echo "=================================================================" | lolcat
+	echo -e " Password saat kita ketik memang tidak terlihat " | lolcat
+	echo "=================================================================" | lolcat
+	read -p "Tekan ENTER untuk melanjutkan ke pengisian password..............!" | lolcat
+	passwd root
 	break
 	;;
 	"Monitor User Login")
@@ -133,7 +143,7 @@ do
 	;;
 	"Lihat Lokasi User")
 	clear
-	userlog
+	userlog | lolcat
 	echo "Contoh: 112.123.345.126 lalu Enter" | lolcat
         read -p "Ketik Salah Satu Alamat IP User: " userip
         curl ipinfo.io/$userip
@@ -148,8 +158,8 @@ do
 	 ;;
 	 "Restart Server VPS")
 	 clear
-	 reboot
-	 echo "sudah di restart tunggu sebentar ya boss!!!" | boxes -d boy | lolcat
+	 rebootvps
+	 echo "Proses Rebooting.........................." | boxes -d boy | lolcat
 	 break
 	 ;;
 	 "Restart Dropbear")
