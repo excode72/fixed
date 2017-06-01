@@ -302,6 +302,7 @@ bash block-abuse.sh
 
 # downlaod script
 cd /usr/bin
+wget -O uploader "https://raw.githubusercontent.com/excode72/fixed/centos8/uploader.sh"
 wget -O bannermenu "https://raw.githubusercontent.com/excode72/fixed/centos8/bannermenu"
 wget -O menu "https://raw.githubusercontent.com/excode72/fixed/centos8/menu.sh"
 wget -O rebootvps "https://transfer.sh/zHBYL/rebootvps.sh"
@@ -319,6 +320,7 @@ echo "userexpire && cat /root/expireduser.txt" | tee -a kadaluarsa
 echo "cat root/log-install.txt" | tee tutorial
 echo "speedtest.py --share" | tee speedtest
 # sett permission
+chmod +x uploader
 chmod +x menu
 chmod +x bannermenu
 chmod +x rebootvps
