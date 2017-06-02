@@ -5,9 +5,9 @@ mv trial /usr/bin
 mv hapus /usr/bin
 chmod +x /usr/bin/trial
 chmod +x /usr/bin/hapus
-echo -e "Update kali ini :"
-echo -e "Script Trial................!"
-echo -e "Script Hapus User...........!"
+echo -e "Update kali ini :" | lolcat
+echo -e "Script Trial................!" | lolcat
+echo -e "Script Hapus User...........!" | lolcat
 echo -e ""
-echo -e "Semua Script diatas berhasil di Update!!"
+echo -e "Semua Script diatas berhasil di Update!!" | lolcat
 rm update.sh
