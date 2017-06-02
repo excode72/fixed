@@ -10,4 +10,5 @@ echo -e "Script Trial................!" | lolcat
 echo -e "Script Hapus User...........!" | lolcat
 echo -e ""
 echo -e "Semua Script diatas berhasil di Update!!" | lolcat
-rm update.sh
+rm update.sh 
+
