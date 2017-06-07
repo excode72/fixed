@@ -1,5 +1,15 @@
-echo -e ""
-echo -e "Welcome to Sphinx VPS"
+echo -e "                                                          
+                   ,,          ,,                         
+ .M"""bgd        `7MM          db                         
+,MI    "Y          MM                                     
+`MMb.   `7MMpdMAo. MMpMMMb.  `7MM  `7MMpMMMb.  `7M'   `MF'
+  `YMMNq. MM   `Wb MM    MM    MM    MM    MM    `VA ,V'  
+.     `MM MM    M8 MM    MM    MM    MM    MM      XMX    
+Mb     dM MM   ,AP MM    MM    MM    MM    MM    ,V' VA.  
+P"Ybmmd"  MMbmmd'.JMML  JMML..JMML..JMML  JMML..AM.   .MA.
+          MM                                              
+        .JMML.                                            
+"
 echo -e "================================+"
 echo -e "List Harga SSH Premium Sphinx"
 echo -e "--------------------------------+"
