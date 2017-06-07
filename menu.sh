@@ -53,7 +53,7 @@ echo ""
 PS3='Silahkan ketik nomor pilihan anda lalu tekan ENTER: '
 echo ""
 echo ""
-options=("Buat User SSH" "Buat User SSH Trial" "Perbarui User" "Ganti Password User SSH" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "File Uploader (NEW!)" "Update Script....!" "Quit") 
+options=("Buat User SSH" "Buat User SSH Trial" "Perbarui User" "Ganti Password User SSH" "List User Dan Tanggal Kadaluarsa" "Monitor User Login" "Hapus User" "Ganti Hostname" "Ganti Password VPS" "Speedtest" "Benchmark" "Bersihkan Cache Ram Manual" "Edit Banner Menu" "List Harga SSH" "Edit List Harga" "Lihat Lokasi User" "Restart Webmin" "Restart Server VPS" "Restart Dropbear" "Restart OpenSSH" "File Uploader (NEW!)" "Update Script....!" "Quit") 
 select opt in "${options[@]}"
 do
     case $opt in
@@ -151,6 +151,21 @@ do
 	echo "--------------------------------------------------------" | lolcat
 	read -p "Tekan ENTER untuk melanjutkan..................." | lolcat
 	nano /etc/bannerssh
+	break
+	;;
+	"List Harga SSH")
+	clear
+	listharga | lolcat
+	break
+	;;
+	"Edit List Harga")
+	clear
+	echo "--------------------------------------------------------" | lolcat
+	echo -e "1. Simpan text (CTRL + X, lalu ketik Y dan tekan ENTER)" | lolcat
+	echo -e "2. Membatalkan edit text (CTRL + X,lalu ketik N dan tekan ENTER)" | lolcat
+	echo "--------------------------------------------------------" | lolcat
+	read -p "Tekan ENTER untuk melanjutkan..................." | lolcat
+	nano /usr/bin/listharga
 	break
 	;;
 	"Lihat Lokasi User")
