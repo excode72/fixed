@@ -6,5 +6,4 @@ echo -e "Update kali ini :" | lolcat
 echo -e "Script Uploader................!" | lolcat
 echo -e ""
 echo -e "Semua Script diatas berhasil di Update!!" | lolcat
-rm update.sh 
 
