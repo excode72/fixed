@@ -397,5 +397,5 @@ echo ""
 echo -e " VPS anda akan Reboot....... " | lolcat
 echo ""
 
-rm /home/centos/non.sh
+rm non.sh
 reboot
