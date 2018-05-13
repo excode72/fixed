@@ -4,7 +4,7 @@ echo ""
 echo "===============================================================" | lolcat
 echo -e "1.Isikan File Path dengan lokasi file anda. (Contoh: /home/babi.txt)" | lolcat
 echo -e "2.Isikan Nama File sesuai nama file anda. (Contoh: babi.txt)" | lolcat
-echo -e "NB: File Size up to 10GB" | lolcat
+echo -e "NB: File Size up to 10GB, File stored for 14 days" | lolcat
 echo "===============================================================" | lolcat
 read -p "File Path: " pathanda
 read -p "Nama File: " fileanda
