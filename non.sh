@@ -192,9 +192,9 @@ cd /etc/openvpn/
 wget -O /etc/openvpn/1194-client.ovpn "http://script.fawzya.net/centos/open-vpn.conf"
 sed -i $MYIP2 /etc/openvpn/1194-client.ovpn;
 PASS=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1`;
-useradd -M -s /bin/false Fawzya
-echo "Fawzya:$PASS" | chpasswd
-echo "Fawzya" > pass.txt
+useradd -M -s /bin/false excode72
+echo "excode72:$PASS" | chpasswd
+echo "excode72" > pass.txt
 echo "$PASS" >> pass.txt
 tar cf client.tar 1194-client.ovpn pass.txt
 cp client.tar /home/vps/public_html/
@@ -394,7 +394,7 @@ echo "----------"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "==============================================="  | tee -a log-install.txt
 echo ""
-echo -e " VPS anda akan Reboot....... " | lolcat
+echo -e " VPS Rebooting....... " | lolcat
 echo ""
 
 rm non.sh
